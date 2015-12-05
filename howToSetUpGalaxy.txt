@@ -47,12 +47,9 @@ Add the csg to config/tool_conf.xml (and remove unused tools, keep getext)
 Copy the csg tools from galaxy-csg
 
 > mkdir tools/csg
-cp ../galaxy-csg/tools/icqsol_add_surface_field_from_expression/* tools/csg/
-cp ../galaxy-csg/tools/icqsol_color_surface_field/* tools/csg/
-cp ../galaxy-csg/tools/icqsol_compose_shapes/* tools/csg/
-cp ../galaxy-csg/tools/icqsol_create_shape/* tools/csg/
-cp ../galaxy-csg/tools/icqsol_refine_shape/* tools/csg/
-cp ../galaxy-csg/tools/* ~/galaxy/tools/csg/
+> for t in add_surface_field_from_expression color_surface_field compose_shapes create_shape refine_shape translate_shape rotate_shape scale_shape; do cp ../galaxy-csg/tools/icqsol_$t/* tools/csg 
+done
+> cp ../galaxy-csg/tools/* ~/galaxy/tools/csg/
 
 (ignore warnings)
 
