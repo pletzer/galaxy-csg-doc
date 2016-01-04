@@ -25,7 +25,7 @@ You will get a welcome screen such as
 docker is configured to use the default machine with IP 192.168.99.100
 For help getting started, check out the docs at https://docs.docker.com
 
-Not the IP number (192.168.99.100)
+Note the IP number (192.168.99.100)
 
 2) Get the galaxy-csh docker image
 
