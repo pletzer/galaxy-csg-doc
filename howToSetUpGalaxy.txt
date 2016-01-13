@@ -50,20 +50,26 @@ Copy the csg tools from galaxy-csg
 
 > mkdir tools/csg
 > for t in solve_laplace add_surface_field_from_expression color_surface_field compose_shapes add_texture create_shape refine_shape translate_shape rotate_shape scale_shape; do cp ../galaxy-csg/tools/icqsol_$t/* tools/csg; done
-> cp ../galaxy-csg/tools/* $OPENSHIFT_DATA_DIR/source/galaxy/tools/csg/
+> cp ../galaxy-csg/tools/* tools/csg/
 
 (ignore warnings)
 
-Copy the visualization tools 
+Copy the visualization tools (no longer needed) 
 
 > mkdir config/plugins/visualizations/csg/
 > cp -r ../galaxy-csg/visualizations/csg/* $OPENSHIFT_DATA_DIR/source/galaxy/config/plugins/visualizations/csg/
 
+Build VTK
+
+> cd $OPENSHIFT_DATA_DIR/source/vtklite/VTKVTK-6.3.0/build
+> cmake .
+> make install
+
 Build icqsol and dependencies
 
 > cd $OPENSHIFT_DATA_DIR/source/icqsol
-> ../galaxy/.venv/bin/python setup.py develop
-> ../galaxy/.venv/bin/python setup.py install
+> VTK_INCLUDE_DIR=<dir> VTK_LIBRARY_DIR=<dir> ../galaxy/.venv/bin/python setup.py develop
+> VTK_INCLUDE_DIR=<dir> VTK_LIBRARY_DIR=<dir> ../galaxy/.venv/bin/python setup.py install
 
 Create the start/stop hooks
 

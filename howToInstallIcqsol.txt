@@ -22,7 +22,9 @@ Install the icqsol dependencies
 
 Install icqsol
 
-> python setup.py install
+> VTK_INCLUDE_DIR=$OPENSHIFT_DATA_DIR/source/galaxy/.venv/include/vtk-6.3/ \
+  VTK_LIBRARY_DIR=$OPENSHIFT_DATA_DIR/source/galaxy/.venv/lib/ \
+  python setup.py install
 
 Test
 

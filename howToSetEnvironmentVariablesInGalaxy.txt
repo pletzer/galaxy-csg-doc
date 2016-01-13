@@ -1,0 +1,5 @@
+In config/galaxy.ini make sure the line 
+
+environment_setup_file = /home/alexander/.bashrc
+
+is commented out and set to a file to be sourced. 
