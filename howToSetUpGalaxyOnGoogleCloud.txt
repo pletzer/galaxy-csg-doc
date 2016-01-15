@@ -19,7 +19,10 @@ edit config/galaxy.ini
    port = 8080     # keep
    environment_setup_file=$HOME/.bashrc # contains env variable settings
 
-touch ~/.python_egg # this will be the directory used to unpack the zip files 
+# Location where the egg packages are unzipped. Any directory within 
+the home directory will do. (Not setting this variable will generate
+a security warning, which brings icqsol.) 
+export PYTHON_EGG_CACH=$HOME/python_egg
 sh run.sh
 
 You should be able to point your browser to your instance
