@@ -1,0 +1,28 @@
+How to set up Galaxy on Google Cloud
+====================================
+
+1. Create a google instance (e.g. CentOS)
+
+* May need to turn on http and https traffic on
+* Open port 8080 (port 80 requires sudo access)
+  Click on centos-7-1 -> Select Network -> Add firewall rule -> Allowed protocols and ports “tcp:8080”
+  
+
+2. Download and run galaxy
+
+ssh to the instance
+git clone https://github.com/galaxyproject/galaxy.git
+cd galaxy
+cp config/galaxy.ini.sample config/galaxy.ini
+edit config/galaxy.ini
+   host = 0.0.0.0  # listen to all open ports
+   port = 8080     # keep
+   environment_setup_file=$HOME/.bashrc # contains env variable settings
+
+touch ~/.python_egg # this will be the directory used to unpack the zip files 
+sh run.sh
+
+You should be able to point your browser to your instance
+
+3. Install icqsol
+
