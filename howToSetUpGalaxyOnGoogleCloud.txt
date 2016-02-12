@@ -17,7 +17,7 @@ cp config/galaxy.ini.sample config/galaxy.ini
 edit config/galaxy.ini
    host = 0.0.0.0  # listen to all open ports
    port = 8080     # keep
-   environment_setup_file=$HOME/.bashrc # contains env variable settings
+   environment_setup_file=/home/alexander/.bashrc # contains env variable settings
 
 # Location where the egg packages are unzipped. Any directory within 
 the home directory will do. (Not setting this variable will generate
