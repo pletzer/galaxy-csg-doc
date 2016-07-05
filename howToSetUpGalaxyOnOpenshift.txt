@@ -71,6 +71,10 @@ $ rhc env set PYTHON_EGG_CACHE=$OPENSHIFT_DATA_DIR/dependencies -a mygalaxy
 8. Run galaxy
 -------------
 
+***
+Need python 2.7 installed. DIY gear comes with python 2.6
+***
+
 > sh run.sh 
 You will see an error related to the database being too old, 
 > sh manage_db.sh -c ./config/galaxy.ini.sample upgrade

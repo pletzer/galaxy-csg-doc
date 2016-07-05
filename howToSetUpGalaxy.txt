@@ -22,6 +22,16 @@ Edit config/galaxy.ini
 > grep '^host' config/galaxy.ini
 host = 127.9.120.1
 
+If using a different python version than default then create 
+a virtual environment prior to launching run.sh
+
+> virtualenv -p $OPENSHIFT_DATA_DIR/software/bin/python .venv
+
+Make sure the python under ./venv is 2.7
+
+> .venv/bin/python
+
+
 Install python and dependencies
 
 > sh run.sh
@@ -64,7 +74,7 @@ Copy the visualization tools (no longer needed)
 
 Build VTK
 
-> cd $OPENSHIFT_DATA_DIR/source/vtklite/VTKVTK-6.3.0/build
+> cd $OPENSHIFT_DATA_DIR/source/vtklite/VTK-6.3.0/build
 > cmake .
 > make install
 
