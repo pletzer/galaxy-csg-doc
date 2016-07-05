@@ -80,9 +80,15 @@ Build VTK
 
 Build icqsol and dependencies
 
-> cd $OPENSHIFT_DATA_DIR/source/icqsol
-> VTK_INCLUDE_DIR=<dir> VTK_LIBRARY_DIR=<dir> ../galaxy/.venv/bin/python setup.py develop
-> VTK_INCLUDE_DIR=<dir> VTK_LIBRARY_DIR=<dir> ../galaxy/.venv/bin/python setup.py install
+> cd $OPENSHIFT_DATA_DIR/source/
+> git clone https://github.com/pletzer/icqsol.git
+> icqsol
+> VTK_INCLUDE_DIRS=$OPENSHIFT_DATA_DIR/source/galaxy/.venv/include/vtk-6.3 \
+  VTK_LIBRARY_DIR=$OPENSHIFT_DATA_DIR/source/galaxy/.venv/lib \
+  ../galaxy/.venv/bin/python setup.py develop
+> VTK_INCLUDE_DIRS=$OPENSHIFT_DATA_DIR/source/galaxy/.venv/include/vtk-6.3 \
+  VTK_LIBRARY_DIR=$OPENSHIFT_DATA_DIR/source/galaxy/.venv/lib \
+  ../galaxy/.venv/bin/python setup.py install
 
 Create the start/stop hooks
 
@@ -92,14 +98,16 @@ sh $OPENSHIFT_DATA_DIR/source/galaxy/run.sh --daemon
 $ cat .openshift/action_hooks/stop
 sh $OPENSHIFT_DATA_DIR/source/galaxy/run.sh --stop-daemon
 
-The default python on Openshift is 2.6 and this requires a pip install of 
-argparse
-
-> .venv/bin/pip install argparse
-
 Test 
 
 > cd $OPENSHIFT_DATA_DIR/source/galaxy/
 > sh run.sh
+
+Stop/start/restart the app
+
+$ rhc app-stop 
+$ rhc app-start
+$ rhc app-restart
+
 
 
